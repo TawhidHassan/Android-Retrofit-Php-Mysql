@@ -1,4 +1,4 @@
-package com.example.retrofitphpmysql;
+package com.example.retrofitphpmysql.api;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
