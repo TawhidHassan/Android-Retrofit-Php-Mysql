@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.example.retrofitphpmysql.response.DefaultResponse;
 import com.example.retrofitphpmysql.R;
 import com.example.retrofitphpmysql.api.RetrofitClient;
+import com.example.retrofitphpmysql.storgae.SharedPrefManager;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -36,6 +37,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.textViewLogin).setOnClickListener(this);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if(SharedPrefManager.getInstance(this).isLoggedIn()){
+            Intent intent = new Intent(this, ProfileActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+    }
 
 
     private void userSignUp() {
